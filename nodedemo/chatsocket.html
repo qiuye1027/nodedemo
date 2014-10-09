@@ -1,0 +1,56 @@
+    <!DOCTYPE html>  
+    <html> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <head>
+         <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <style>
+            #chat{ border:1px solid rgb(185, 170, 170); width: 600px; padding: 20px; margin: 20px; }
+            #chat p span{  font-size: x-large; padding: 0 10px; }
+            #chat p.mine span{ color: chocolate;  }
+            #chat p.yours {  text-align: right;}
+            #chat p.yours span{ color: coral;  }
+            #chat p span.chatcent{background-color: cornflowerblue; border-radius: 5px; color: white;}
+        </style>
+        <script>   
+          var socket = io.connect('http://qqqiuye.kd.io:3001/');   
+          // 当服务端发送一条消息到客户端，message 事件即被触发。我们把消息在控制台打印出来 
+          
+           
+          socket.on('message', function(data){  
+              $("#chat").append(data);
+           })   
+         
+         function checkLeave(){ 
+          
+          socket.emit('end',event);
+          
+        }
+           
+      
+           
+          
+          function setUsercent () {
+              var usercent = $("#usercent").val();
+              
+                var user = { "name": $("#username").val(), "cent": usercent };
+              $("#usercent").val("");
+              
+              // Tell the server your usercent
+              socket.emit('add user',user);
+            }
+        </script> 
+        
+        
+    </head>
+      <body onbeforeunload="checkLeave()">  
+       
+        
+        用户名： <input type="text" id="username">
+        <div id="chat">
+        
+        </div>
+        
+        <input type="text" id="usercent"><button onclick="setUsercent()" type="button">发送</button><br>
+      </body>  
+    </html>  
