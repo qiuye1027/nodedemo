@@ -17,7 +17,7 @@ exports.doLogin = function(req, res){
         res.redirect('/home?'+req.body.username);
     }
         res.render('login', { title: '用户登陆',message: '用户名或密码错误，请重新输入'});
-    };
+ };
     
 exports.logout = function(req, res){
     res.redirect('/');
