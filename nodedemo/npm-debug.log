@@ -1,0 +1,87 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   '\'indexof\'' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ '\'indexof\'', null ]
+6 verbose cache add name=undefined spec="'indexof'" args=["'indexof'",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '%27indexof%27',
+7 verbose parsed url   path: '%27indexof%27',
+7 verbose parsed url   href: '%27indexof%27' }
+8 silly lockFile c03fa2be-indexof 'indexof'
+9 verbose lock 'indexof' C:\Users\ztb\AppData\Roaming\npm-cache\c03fa2be-indexof.lock
+10 silly lockFile c03fa2be-indexof 'indexof'
+11 silly lockFile c03fa2be-indexof 'indexof'
+12 verbose addNamed [ '\'indexof\'', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 44d6f94b-indexof 'indexof'@
+15 verbose lock 'indexof'@ C:\Users\ztb\AppData\Roaming\npm-cache\44d6f94b-indexof.lock
+16 silly addNameRange { name: '\'indexof\'', range: '*', hasData: false }
+17 verbose request where is /%27indexof%27
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id a1fc50eabc939a3e
+20 verbose url raw /%27indexof%27
+21 verbose url resolving [ 'https://registry.npmjs.org/', './%2527indexof%2527' ]
+22 verbose url resolved https://registry.npmjs.org/%2527indexof%2527
+23 verbose request where is https://registry.npmjs.org/%2527indexof%2527
+24 info trying registry request attempt 1 at 11:49:33
+25 http GET https://registry.npmjs.org/%2527indexof%2527
+26 http 404 https://registry.npmjs.org/%2527indexof%2527
+27 verbose headers { date: 'Fri, 10 Oct 2014 03:49:34 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-ty67-TYO',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1412912974.145688,VS0,VE730',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Fri, 10 Oct 2014 03:49:34 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-ty67-TYO',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1412912974.145688,VS0,VE730',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 44d6f94b-indexof 'indexof'@
+30 silly lockFile 44d6f94b-indexof 'indexof'@
+31 error 404 404 Not Found: %2527indexof%2527
+31 error 404
+31 error 404 '%2527indexof%2527' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Windows_NT 6.2.9200
+33 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "'indexof'"
+34 error cwd e:\nodedemo\nodedemo
+35 error node -v v0.10.32
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]

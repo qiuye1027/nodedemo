@@ -27,7 +27,7 @@ ClientConnectionReady = function(client){
  //遍历所有数据
 GetData = function(client,id){
     client.query(
-        'select * from users where id='+id,
+        'select * from user where id='+id,
         function selectZ(error,results,fields){
             if(error){
                 console.log('GetData Error'+error.message);
