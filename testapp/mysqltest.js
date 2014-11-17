@@ -20,12 +20,15 @@ ClientConnectionReady = function(client){
             client.end();
             return;
         } 
-          GetData(client,2);
+           GetData(client,2,function(res){
+                console.log("----"+res)
+           });
+          //datainsert(client);
     });
 }
  
  //遍历所有数据
-GetData = function(client,id){
+GetData = function(client,id,callback){
     client.query(
         'select * from user where id='+id,
         function selectZ(error,results,fields){
@@ -34,18 +37,20 @@ GetData = function(client,id){
                 client.end();
                 return;
             }
-            console.log('Results:');
+         /*   console.log('Results:');
             console.log(results);
             console.log('Field metadata:');
             console.log('fields');
-            console.log(sys.inspect(results));
+            console.log(sys.inspect(results));*/
             //查看第一条数据
-            if(results.length>0){
+           /* if(results.length>0){
                 var firstResult = results[0];
                 console.log('id:'+firstResult['id']);
                 console.log('name:'+firstResult['name']);
-                console.log('ps:'+firstResult['ps']);
-            }
+                console.log('ps:'+firstResult['password']);
+            }*/
+              
+           callback(results[0]['name']) ;
         }
     );
    client.end();
@@ -56,8 +61,8 @@ GetData = function(client,id){
 
 //插入数据
 datainsert = function(client){
-    var values=['lazynight','hello qiuye'];
-    client.query('insert into users set user_login=?,user_nicename=?',values,function(error,results){
+    var values=[4,'lazynight','hello qiuye'];
+    client.query('insert into user set id=?,name=?,password=?',values,function(error,results){
         if(error){
             console.log('ClientReady Error:'+error.message);
             client.end();
@@ -67,10 +72,12 @@ datainsert = function(client){
         console.log('Id inserted:'+results.insertId);
         console.log(results)
     });
-    //GetData(client);
+     GetData(client,4);
 }
 
 
 ClientConnectionReady(db);
+
+
 
  

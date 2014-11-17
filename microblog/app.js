@@ -28,6 +28,7 @@ app.configure(function (){
     secret: "hello world",//这个是session加密需要的，随便写的。
 	cookie : {
 			maxAge : 60000 * 20	//20 minutes
+      ,secr:"qiuye"   //设置session
 		}
   }));
 
@@ -40,7 +41,10 @@ app.use(function(req, res, next){
   res.locals.user = req.session.user;
   res.locals.error = error.length ? error : null;
   res.locals.success = success ? success : null;
-  next();
+
+  console.log(req.session.cookie.secr)    //获取session
+
+  next();     //通过调用 next() ，会将路由控制权转移给后面的规则
 });
 
 // all environments

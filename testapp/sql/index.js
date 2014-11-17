@@ -9,7 +9,7 @@ var connectParams = {
 }
 var db = mysql.createConnection(connectParams);
 var insertSQL = 'insert into t_user(name) values("conan"),("fens.me")';
-var selectSQL = 'select * from user where name= ? and ps = ?';
+var selectSQL = 'select * from user where name= ? and password = ?';
 var deleteSQL = 'delete from t_user';
 var updateSQL = 'update t_user set name="conan update"  where name="conan"';
 
@@ -31,14 +31,14 @@ ClientConnectionReady = function(client){
 GetData = function(client,ps,names,callback){
 
    client.query(
-        'select * from user where name= "'+names+'" and ps = "'+ps+'"' ,
+        'select * from user where name= "'+names+'" and password = "'+ps+'"' ,
         function selectZ(error,results,fields){
             if(error){
                 console.log('GetData Error'+error.message);
                 client.end();
                 return;
-            }else {
-               callback(res)= results;
+            }else { 
+               callback(results) ;
             } 
 
             
@@ -83,11 +83,11 @@ datainsert = function(client){
 
 
 
-exports.find = function(ps,names){
+exports.find = function(ps,names,callback){
     
      ClientConnectionReady(db);
      GetData(db,ps,names,function(res){
-        console.log(res)
+        callback(res)
      }) ;
 
 }

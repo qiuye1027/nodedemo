@@ -9,10 +9,11 @@ var sql = require('../sql');
  * @param {Array} names 用户名列表
  * @param {Function} callback 回调函数
  */
-exports.getUsersByNames = function (ps,names) {
+exports.getUsersByNames = function (ps,names,callback) {
  
    sql.find(ps,names,function(re){
-   		console.log(re);
+   		 
+   		callback(re)
    });
 };
 
