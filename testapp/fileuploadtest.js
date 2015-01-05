@@ -1,10 +1,41 @@
 var formidable = require('formidable'),  
+    express = require('express'),
+    routes = require('./routes/file.js'),
     http = require('http'),  
     fs = require('fs'),  
-    sys = require('sys')
-    msg = "";  
+    sys = require('sys'),
+    ejs = require('ejs'),
+    path = require('path'), 
+    msg = ""; 
+
+ 
+var app = express(); 
+
+//环境变量
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.engine('.html', ejs.__express);
+app.set('view engine', 'html');
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public')));
+ 
+app.get('/', routes.flieupload);
+app.post('/upload', routes.doupload);
+
+
+// 启动及端口
+http.createServer(app).listen(app.get('port'), function(){
+console.log('Express server listening on port ' + app.get('port'));
+});
+
+
+
   
-http.createServer(function(req, res) {  
+/*http.createServer(function(req, res) {  
     if (req.url == '/upload' && req.method.toLowerCase() == 'post') {  
         // parse a file upload  
         var form = new formidable.IncomingForm();  
@@ -30,7 +61,7 @@ http.createServer(function(req, res) {
             //文件上传到临时文件目录下，我们还要将临时文件， 移到我们的上传目录中
             fs.rename(files.upload.path, form.uploadDir + '/' + files.upload.name);
 
-             fs.readFile(form.uploadDir + '\' + files.upload.name,'binary',function(err, file) {
+             fs.readFile(form.uploadDir + '/' + files.upload.name,'binary',function(err, file) {
                     if (err) {
                         console.log(err);
                         return;
@@ -67,4 +98,4 @@ http.createServer(function(req, res) {
             '</form>'  
 
     );  
-}).listen(3000);  
+}).listen(3000);  */

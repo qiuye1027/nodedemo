@@ -50,6 +50,3 @@ exports.chatsocket = function(req, res){
 };
 
 
-exports.flieupload = function(req, res){
-    res.render('flieupload', { title: 'flieupload' });
-};
